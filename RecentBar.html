@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales Bar Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        canvas {
+            max-width: 800px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="salesBarChart"></canvas>
+
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('salesBarChart').getContext('2d');
+        const salesBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'], // X-axis labels for different products
+                datasets: [{
+                    label: 'Units Sold', // Chart label
+                    data: [150, 200, 180, 120, 250], // Actual sales data
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',  // Blue
+                        'rgba(255, 99, 132, 0.7)',  // Red
+                        'rgba(255, 206, 86, 0.7)',  // Yellow
+                        'rgba(75, 192, 192, 0.7)',  // Green
+                        'rgba(153, 102, 255, 0.7)'  // Purple
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true, // Y-axis starts at 0
+                        title: {
+                            display: true,
+                            text: 'Units Sold' // Label for the Y-axis
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Products' // Label for the X-axis
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Sales Performance of Products' // Main chart title
+                    },
+                    legend: {
+                        display: false // Hides legend as it's a simple chart
+                    }
+                }
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChartJS Stacked Bar Chart Example</title>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+    </script>
+    <script src=
+"https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
+    </script>
+</head>
+
+<body>
+    <h1 style="color:rgb(1, 35, 1);">
+        Ranjan
+    </h1>
+    
+    <h3>Chart JS Stacked Chart </h3>
+    
+    <div>
+        <canvas id="stackedChartID"></canvas>
+    </div>
+
+
+    <script>
+
+        // Get the drawing context on the canvas
+        var myContext = document.getElementById(
+            "stackedChartID").getContext('2d');
+        var myChart = new Chart(myContext, {
+            type: 'bar',
+            data: {
+                labels: ["bike", "car", "scooter", 
+                    "truck", "auto", "Bus"],
+                datasets: [{
+                    label: 'worst',
+                    backgroundColor: "blue",
+                    data: [17, 16, 4, 11, 8, 9],
+                }, {
+                    label: 'Okay',
+                    backgroundColor: "green",
+                    data: [14, 2, 10, 6, 12, 16],
+                }, {
+                    label: 'bad',
+                    backgroundColor: "red",
+                    data: [2, 21, 13, 3, 24, 7],
+                }],
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Stacked Bar chart for pollution status'
+                    },
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html> -->

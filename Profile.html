@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Form</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="form-toggle">
+            <button id="login-btn" onclick="toggleForm('login')">Login</button>
+            <button id="signup-btn" onclick="toggleForm('signup')">Signup</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="form" onsubmit="return login(event)">
+            <h2>Login</h2>
+            <div class="input-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="input-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form" class="form hidden" onsubmit="return signup(event)">
+            <h2>Signup</h2>
+            <div class="main">
+
+                <form action="">
+                    <label for="first">First Name:</label>
+                    <input type="text" id="first" name="first" required />
+
+                    <label for="last">Last Name:</label>
+                    <input type="text" id="last" name="last" required />
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password"
+                        pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" title="Password must contain at least one number, 
+                           one alphabet, one symbol, and be at 
+                           least 8 characters long" required />
+
+                    <label for="repassword">Re-type Password:</label>
+                    <input type="password" id="repassword" name="repassword" required />
+
+                    <label for="mobile">Contact:</label>
+                    <input type="text" id="mobile" name="mobile" maxlength="10" required />
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">
+                            Male
+                        </option>
+                        <option value="female">
+                            Female
+                        </option>
+                        <option value="other">
+                            Other
+                        </option>
+                    </select>
+
+                    <button type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: Arial, sans-serif;
+                }
+
+                body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background-color: #f4f4f4;
+                }
+
+                .form-container {
+                    background-color: white;
+                    border-radius: 10px;
+                    padding: 20px;
+                    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+                    width: 300px;
+                    text-align: center;
+                }
+
+                .form-toggle button {
+                    background-color: #3498db;
+                    color: white;
+                    padding: 10px;
+                    border: none;
+                    margin: 5px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    width: 100px;
+                }
+
+                .form-toggle button.active {
+                    background-color: #2980b9;
+                }
+
+                .form {
+                    display: none;
+                    margin-top: 20px;
+                }
+
+                .form h2 {
+                    margin-bottom: 15px;
+                }
+
+                .form .input-group {
+                    margin-bottom: 10px;
+                    text-align: left;
+                }
+
+                .form .input-group label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                }
+
+                .form .input-group input {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                }
+
+                .form button {
+                    background-color: #2ecc71;
+                    color: white;
+                    padding: 10px;
+                    border: none;
+                    width: 100%;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .form.hidden {
+                    display: none;
+                }
+
+                #login-form {
+                    display: block;
+                }
+            </style>
+
+            <script>
+                function toggleForm(formType) {
+                    const loginForm = document.getElementById('login-form');
+                    const signupForm = document.getElementById('signup-form');
+                    const loginBtn = document.getElementById('login-btn');
+                    const signupBtn = document.getElementById('signup-btn');
+
+                    if (formType === 'login') {
+                        loginForm.classList.remove('hidden');
+                        signupForm.classList.add('hidden');
+                        loginBtn.classList.add('active');
+                        signupBtn.classList.remove('active');
+                    } else {
+                        signupForm.classList.remove('hidden');
+                        loginForm.classList.add('hidden');
+                        signupBtn.classList.add('active');
+                        loginBtn.classList.remove('active');
+                    }
+                }
+
+                function login(event) {
+                    event.preventDefault();
+                    const email = document.getElementById('login-email').value;
+                    const password = document.getElementById('login-password').value;
+
+                    alert(`Login successful!\nEmail: ${email}`);
+                }
+
+                function signup(event) {
+                    event.preventDefault();
+                    const name = document.getElementById('signup-name').value;
+                    const email = document.getElementById('signup-email').value;
+                    const password = document.getElementById('signup-password').value;
+
+                    alert(`Signup successful!\nName: ${name}\nEmail: ${email}`);
+                }
+
+            </script>
+
+            <script src="profile.js"></script>
+</body>
+
+</html>

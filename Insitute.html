@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Institute Dashboard</title>
+    <link rel="stylesheet" href="institute.css">
+    
+</head>
+<body>
+    <h1>Institute Dashboard</h1>
+    <div class="institutes">
+        <h2>Delhi Institutes</h2>
+        <ul id="delhi-institutes">
+            <!-- Delhi institutes will be listed here -->
+        </ul>
+        <h2>Greater Noida Institutes</h2>
+        <ul id="greater-noida-institutes">
+            <!-- Greater Noida institutes will be listed here -->
+        </ul>
+    </div>
+
+    <style>
+        
+.institutes {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.institutes h2 {
+    margin-top: 0;
+}
+
+.institutes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.institutes li {
+    margin-bottom: 10px;
+}
+
+.institutes a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.institutes a:hover {
+    color: #23527c;
+}
+    </style>
+
+    <script>
+        const delhiInstitutes = [
+    { name: "Indian Institute of Technology Delhi (IITD)", link: "https://www.iitd.ac.in/" },
+    { name: "University of Delhi (DU)", link: "https://www.du.ac.in/" },
+    { name: "Jawaharlal Nehru University (JNU)", link: "https://www.jnu.ac.in/" },
+    { name: "Guru Gobind Singh Indraprastha University (GGSIPU)", link: "https://www.ipu.ac.in/" },
+    { name: "Netaji Subhas University of Technology (NSUT)", link: "https://www.nsut.ac.in/" }
+];
+
+const greaterNoidaInstitutes = [
+    { name: "Galgotias University", link: "https://www.galgotiasuniversity.edu.in/" },
+    { name: "Sharda University", link: "https://www.sharda.ac.in/" },
+    { name: "Amity University", link: "https://www.amity.edu/" },
+    { name: "Gautam Buddha University (GBU)", link: "https://www.gbu.ac.in/" },
+    { name: "Noida International University (NIU)", link: "https://www.niu.edu.in/" }
+];
+
+const delhiInstitutesList = document.getElementById("delhi-institutes");
+const greaterNoidaInstitutesList = document.getElementById("greater-noida-institutes");
+
+delhiInstitutes.forEach((institute) => {
+    const listItem = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = institute.link;
+    link.textContent = institute.name;
+    listItem.appendChild(link);
+    delhiInstitutesList.appendChild(listItem);
+});
+
+greaterNoidaInstitutes.forEach((institute) => {
+    const listItem = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = institute.link;
+    link.textContent = institute.name;
+    listItem.appendChild(link);
+    greaterNoidaInstitutesList.appendChild(listItem);
+});
+    </script>
+
+    <script src="institute.js"></script>
+</body>
+</html>

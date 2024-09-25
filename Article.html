@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Articles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>News Articles</h1>
+    <div class="news-container">
+        <div class="news-list">
+            <!-- News articles will be listed here -->
+        </div>
+        <button class="refresh">Refresh</button>
+    </div>
+
+    <style>.news-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .news-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .news-list li {
+        margin-bottom: 20px;
+    }
+    
+    .news-list a {
+        text-decoration: none;
+        color: #337ab7;
+    }
+    
+    .news-list a:hover {
+        color: #23527c;
+    }
+    
+    .refresh {
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .refresh:hover {
+        background-color: #23527c;
+    }</style>
+
+    <script>const newsContainer = document.querySelector(".news-container");
+        const newsList = document.querySelector(".news-list");
+        const refreshButton = document.querySelector(".refresh");
+        
+        let newsArticles = [];
+        
+        function fetchNews() {
+            // Replace with your news API endpoint
+            const url = "https://example.com/news-api";
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    newsArticles = data.articles;
+                    displayNews();
+                })
+                .catch(error => console.error(error));
+        }
+        
+        function displayNews() {
+            newsList.innerHTML = "";
+            newsArticles.forEach((article) => {
+                const newsItem = document.createElement("li");
+                const newsLink = document.createElement("a");
+                newsLink.href = article.url;
+                newsLink.textContent = article.title;
+                newsItem.appendChild(newsLink);
+                newsList.appendChild(newsItem);
+            });
+        }
+        
+        fetchNews();
+        
+        refreshButton.addEventListener("click", () => {
+            fetchNews();
+        });</script>
+</body>
+</html>

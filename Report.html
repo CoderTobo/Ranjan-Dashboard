@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institute Report</title>
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Institute Report</h1>
+      <p>List of institutes in Greater Noida, Delhi, Kolkata, and Pune.</p>
+    </header>
+
+    <div class="city-section" id="greater-noida">
+      <h2>Greater Noida</h2>
+      <ul class="institute-list" id="noida-list"></ul>
+    </div>
+
+    <div class="city-section" id="delhi">
+      <h2>Delhi</h2>
+      <ul class="institute-list" id="delhi-list"></ul>
+    </div>
+
+    <div class="city-section" id="kolkata">
+      <h2>Kolkata</h2>
+      <ul class="institute-list" id="kolkata-list"></ul>
+    </div>
+
+    <div class="city-section" id="pune">
+      <h2>Pune</h2>
+      <ul class="institute-list" id="pune-list"></ul>
+    </div>
+  </div>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    color: #3498db;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .city-section {
+    margin-bottom: 30px;
+  }
+  
+  .city-section h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .institute-list {
+    list-style: none;
+  }
+  
+  .institute-list li {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .institute-list li:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .institute-list li:hover {
+    background-color: #e1e1e1;
+    cursor: pointer;
+  }
+  
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const institutes = {
+      "Greater Noida": [
+        "Institute of Management Studies" ,
+        "Amity University",
+        "Sharda University"
+      ],
+      "Delhi": [
+        "Delhi University",
+        "Jawaharlal Nehru University",
+        "Indian Institute of Technology Delhi"
+      ],
+      "Kolkata": [
+        "Jadavpur University",
+        "Calcutta University",
+        "Indian Statistical Institute"
+      ],
+      "Pune": [
+        "Savitribai Phule Pune University",
+        "Pune Institute of Computer Technology",
+        "Symbiosis International University"
+      ]
+    };
+  
+    function populateList(city, instituteListId) {
+      const listElement = document.getElementById(instituteListId);
+      institutes[city].forEach(institute => {
+        const listItem = document.createElement('li');
+        listItem.textContent = institute;
+        listElement.appendChild(listItem);
+      });
+    }
+  
+    populateList("Greater Noida", "noida-list");
+    populateList("Delhi", "delhi-list");
+    populateList("Kolkata", "kolkata-list");
+    populateList("Pune", "pune-list");
+  });
+  
+  </script>
+
+  <script src="report.js"></script>
+</body>
+</html>
